@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:    
+    tier: sut
+  name: sut-java8-aircraft-deployment  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:    
+      key: pod-java8-aircraft
+  template:
+    metadata:
+      labels:
+        key: pod-java8-aircraft
+    spec:                        
+      containers:
+        - name: container
+          image: f4phantom.skylab:5000/java8-aircraft:latest
+          imagePullPolicy: Always       
+          ports:
+            - containerPort: 880
+              name: web                      
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-java8-aircraft
+spec:  
+  type: NodePort
+  selector:
+    key: pod-java8-aircraft
+  ports:
+    - name: cluster
+      protocol: TCP      
+      port: 48105
+      nodePort: 30105
+      targetPort: 8080
