@@ -8,15 +8,15 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Traffic")
+@RequestMapping("/traffic")
 public class TrafficController {
 
-    private final static Queue<Long> State = new ConcurrentLinkedQueue<>();
+    private static final Queue<Long> State = new ConcurrentLinkedQueue<>();
 
     @GetMapping
-    public List<Integer> Get(){
+    public List<Integer> get(){
         List<Long> copy = new ArrayList<>(TrafficController.State);
-        Hashtable<Long, Integer> temporal = new Hashtable<>();
+        HashMap<Long, Integer> temporal = new HashMap<>();
         for (Long temp: copy) {
             int value = temporal.getOrDefault(temp, -1);
             if ( value != -1 ){
@@ -31,13 +31,13 @@ public class TrafficController {
     }
 
     @PostMapping("/reset")
-    public long PostReset(){
+    public long postReset(){
         TrafficController.State.clear();
         return 0;
     }
 
     @PostMapping
-    public long Post(){
+    public long post(){
         long key = System.currentTimeMillis();
         TrafficController.State.add(key);
         return key;

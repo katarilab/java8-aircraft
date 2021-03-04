@@ -18,3 +18,7 @@ source "/home/gregory/.sdkman/bin/sdkman-init.sh"
 
 # run project
 ./gradlew bootRun
+
+
+# run 
+sudo docker run -d --rm  -p 8080:8080 java8-aircraft:latest
