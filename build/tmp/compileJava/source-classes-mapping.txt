@@ -1,6 +1,0 @@
-com/katarilab/java8aircraft/Java8AircraftApplication.java
- com.katarilab.java8aircraft.Java8AircraftApplication
-com/katarilab/java8aircraft/api/traffic/resource/TrafficController.java
- com.katarilab.java8aircraft.api.traffic.resource.TrafficController
-com/katarilab/java8aircraft/api/traffic/model/TrafficGetRp.java
- com.katarilab.java8aircraft.api.traffic.model.TrafficGetRp

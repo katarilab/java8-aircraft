@@ -1,3 +1,3 @@
 ./gradlew clean
 ./gradlew test
-./gradlew bootRepackage
+./gradlew bootRun --stacktrace

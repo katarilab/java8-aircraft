@@ -16,6 +16,11 @@ source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 source "/home/gregory/.sdkman/bin/sdkman-init.sh"
 
+# install 
+sdk install gradle 5
+# start
+gradle wrapper
+
 # run project
 ./gradlew bootRun
 
